@@ -7,53 +7,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.lmz.service.CourseService;
-import com.lmz.vo.CourseArrangement;
-import com.lmz.vo.CourseArrangementExample;
+import com.lmz.service.LaboratoryService;
+import com.lmz.vo.LaboratoryArrangement;
+import com.lmz.vo.LaboratoryArrangementExample;
+
 
 @Controller
 @RequestMapping("/course")
-public class CourseController {
+public class LaboratoryController {
 	
 	@Autowired
-	private CourseService courseService;
+	private LaboratoryService labService;
 	
 	@RequestMapping("/save")
-	public String save(CourseArrangement record){
+	public String save(LaboratoryArrangement record){
 		
 		System.out.println("进入增加方法");
-		courseService.save(record);
-		return "redirect:/course/get/1";
+		labService.save(record);
+		return "addrenwu";
 	}
 	
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Integer id){
 		
 		System.out.println("进入删除方法");
-		courseService.delete(id);
+		labService.delete(id);
 		return "redirect:/course/get/1";
 	}
 	
 	@RequestMapping("/update")
-	public void update(CourseArrangement record,CourseArrangementExample example){
+	public void update(LaboratoryArrangement record,LaboratoryArrangementExample example){
 		
 		System.out.println("进入修改方法");
-		courseService.update(record, example);
+		labService.update(record, example);
 	}
 	
 	
 	@RequestMapping("/get/{page}")
 	//@ResponseBody
-	public String get(@PathVariable("page") Integer page,Map<String,Object> map,CourseArrangementExample example){
+	public String get(@PathVariable("page") Integer page,Map<String,Object> map,LaboratoryArrangementExample example){
 		System.out.println("进入了get方法");
 		PageHelper.startPage(page,5);
 		
-		List<CourseArrangement> list = courseService.get(example);
-		PageInfo<CourseArrangement> pageInfo = new PageInfo<CourseArrangement>(list);
+		List<LaboratoryArrangement> list = labService.get(example);
+		PageInfo<LaboratoryArrangement> pageInfo = new PageInfo<LaboratoryArrangement>(list);
 		map.put("pageInfo", pageInfo);
 		
 		return "listrenwu";

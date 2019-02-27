@@ -22,4 +22,10 @@
   2018-12-29 15:59:18 JakartaCommonsLoggingImpl.java DEBUG Found column "instruction", data type 12, in table "sheji..course_arrangement"
   2018-12-29 15:59:18 JakartaCommonsLoggingImpl.java DEBUG Found column "creator", data type 12, in table "sheji..course_arrangement"
   2018-12-29 15:59:18 JakartaCommonsLoggingImpl.java DEBUG Found column "gmt_create", data type 93, in table "sheji..course_arrangement"
+  2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Logging initialized using 'org.mybatis.generator.logging.commons.JakartaCommonsLoggingLogFactory@326de728' adapter.
+  2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Retrieving column information for table "laboratory_arrangement"
+  2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Found column "libid", data type 4, in table "sheji..laboratory_arrangement"
+  2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Found column "libname", data type 12, in table "sheji..laboratory_arrangement"
+  2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Found column "libteacher", data type 12, in table "sheji..laboratory_arrangement"
+  2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Found column "libinstruction", data type 12, in table "sheji..laboratory_arrangement"
   

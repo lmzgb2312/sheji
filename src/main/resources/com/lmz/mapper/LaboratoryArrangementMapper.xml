@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmz.dao.LaboratoryArrangementMapper">
+  <resultMap id="BaseResultMap" type="com.lmz.vo.LaboratoryArrangement">
+    <id column="libid" jdbcType="INTEGER" property="libid" />
+    <result column="libname" jdbcType="VARCHAR" property="libname" />
+    <result column="libteacher" jdbcType="VARCHAR" property="libteacher" />
+    <result column="libinstruction" jdbcType="VARCHAR" property="libinstruction" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    libid, libname, libteacher, libinstruction
+  </sql>
+  <select id="selectByExample" parameterType="com.lmz.vo.LaboratoryArrangementExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from laboratory_arrangement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from laboratory_arrangement
+    where libid = #{libid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from laboratory_arrangement
+    where libid = #{libid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lmz.vo.LaboratoryArrangementExample">
+    delete from laboratory_arrangement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lmz.vo.LaboratoryArrangement">
+    insert into laboratory_arrangement (libid, libname, libteacher, 
+      libinstruction)
+    values (#{libid,jdbcType=INTEGER}, #{libname,jdbcType=VARCHAR}, #{libteacher,jdbcType=VARCHAR}, 
+      #{libinstruction,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lmz.vo.LaboratoryArrangement">
+    insert into laboratory_arrangement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="libid != null">
+        libid,
+      </if>
+      <if test="libname != null">
+        libname,
+      </if>
+      <if test="libteacher != null">
+        libteacher,
+      </if>
+      <if test="libinstruction != null">
+        libinstruction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="libid != null">
+        #{libid,jdbcType=INTEGER},
+      </if>
+      <if test="libname != null">
+        #{libname,jdbcType=VARCHAR},
+      </if>
+      <if test="libteacher != null">
+        #{libteacher,jdbcType=VARCHAR},
+      </if>
+      <if test="libinstruction != null">
+        #{libinstruction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lmz.vo.LaboratoryArrangementExample" resultType="java.lang.Long">
+    select count(*) from laboratory_arrangement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update laboratory_arrangement
+    <set>
+      <if test="record.libid != null">
+        libid = #{record.libid,jdbcType=INTEGER},
+      </if>
+      <if test="record.libname != null">
+        libname = #{record.libname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.libteacher != null">
+        libteacher = #{record.libteacher,jdbcType=VARCHAR},
+      </if>
+      <if test="record.libinstruction != null">
+        libinstruction = #{record.libinstruction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update laboratory_arrangement
+    set libid = #{record.libid,jdbcType=INTEGER},
+      libname = #{record.libname,jdbcType=VARCHAR},
+      libteacher = #{record.libteacher,jdbcType=VARCHAR},
+      libinstruction = #{record.libinstruction,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lmz.vo.LaboratoryArrangement">
+    update laboratory_arrangement
+    <set>
+      <if test="libname != null">
+        libname = #{libname,jdbcType=VARCHAR},
+      </if>
+      <if test="libteacher != null">
+        libteacher = #{libteacher,jdbcType=VARCHAR},
+      </if>
+      <if test="libinstruction != null">
+        libinstruction = #{libinstruction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where libid = #{libid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lmz.vo.LaboratoryArrangement">
+    update laboratory_arrangement
+    set libname = #{libname,jdbcType=VARCHAR},
+      libteacher = #{libteacher,jdbcType=VARCHAR},
+      libinstruction = #{libinstruction,jdbcType=VARCHAR}
+    where libid = #{libid,jdbcType=INTEGER}
+  </update>
+</mapper>
