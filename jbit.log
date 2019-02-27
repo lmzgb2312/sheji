@@ -28,4 +28,16 @@
   2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Found column "libname", data type 12, in table "sheji..laboratory_arrangement"
   2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Found column "libteacher", data type 12, in table "sheji..laboratory_arrangement"
   2019-02-26 14:30:38 JakartaCommonsLoggingImpl.java DEBUG Found column "libinstruction", data type 12, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Logging initialized using 'org.mybatis.generator.logging.commons.JakartaCommonsLoggingLogFactory@326de728' adapter.
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Retrieving column information for table "laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_id", data type 4, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_name", data type 12, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_teacher", data type 12, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_instruction", data type 12, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_start_time", data type 93, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_end_time", data type 93, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_person_amount", data type 4, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "gmt_created", data type 93, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "gmt_modified", data type 93, in table "sheji..laboratory_arrangement"
+  2019-02-27 17:16:43 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_person_amount_now", data type 4, in table "sheji..laboratory_arrangement"
   

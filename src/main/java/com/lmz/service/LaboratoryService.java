@@ -9,11 +9,11 @@ import com.lmz.vo.LaboratoryArrangementExample;
 
 public interface LaboratoryService {
         
-	void save(LaboratoryArrangement record);
+	Integer save(LaboratoryArrangement record);
 	
 	void delete(Integer id);
 	
-	void update(LaboratoryArrangement record,LaboratoryArrangementExample  example);
+	void update(LaboratoryArrangement record);
 	
 	List<LaboratoryArrangement> get(LaboratoryArrangementExample  example);
 	

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>东北林业大学实践教学信息管理平台</title>
+<title>东北林业大学实验室预约管理平台</title>
 <style type="text/css">
 <!--
 body {
@@ -90,7 +90,7 @@ function link(){
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		    <tr>
 			  <td width="21"><img src="../../images/ico07.gif" width="20" height="18" /></td>
-			  <td width="538">查看内容：按课程名称：
+			  <td width="538">查看内容：按实验室名称：
                  <input name="projectName" id="projectName" class="text" style="width:154px" />
 <input name="Submit4" type="button" class="right-button02" value="查 询" /></td>
 <!-- 			   <td width="144" align="left"><a href="#" onclick="sousuo()"> -->
@@ -118,22 +118,19 @@ function link(){
                   <tr bgcolor="#EEEEEE">
 				    <td width="4%" align="center" height="30">选择</td>
                     <td width="10%">实验室名称</td>
-					<td width="10%">创建时间</td>
                     <td width="10%">实验室负责人</td>
-					<td width="10%">实验室状态</td>
-					<td width="5%">实验室人数</td>
+					<td width="10%">创建时间</td>
 					<td width="12%">操作</td>
                   </tr>
                 <c:forEach items="${pageInfo.list }" var="b">
                   <tr bgcolor="#FFFFFF">
 				    <td height="20"><input type="checkbox" name="delid"/></td>
-                    <td >${b.courseName}</td>
-					<td>${b.gmtCreate}</td>
-                    <td>${b.creator}</td>
-                    <td>${b.teacher}</td>
-                     <td>${b.teacher}</td>
+                    <td >${b.labName}</td>
+                    <td>${b.labTeacher}</td>
+                     <td>${b.gmtCreated}</td>
+                     
                     <td><a href="../../files/editrenwu.htm">编辑|</a><a href="../../files/listrenwumingxi.jsp">查看|</a>
-					<a href="../../course/delete/${b.id}">删除</a></td>
+					<a href="../../course/delete/${b.labId}">删除</a></td>
                   </tr>
 			    </c:forEach>
             </table></td>

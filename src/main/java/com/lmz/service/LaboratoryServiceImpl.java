@@ -19,8 +19,16 @@ public class LaboratoryServiceImpl implements LaboratoryService {
 	private LaboratoryArrangementMapper labArrangementMapper;
 
 	@Override
-	public void save(LaboratoryArrangement record) {
-	    labArrangementMapper.insertSelective(record);
+	public Integer save(LaboratoryArrangement record) {
+	    LaboratoryArrangementExample example = new LaboratoryArrangementExample();
+	    example.createCriteria().andLabNameEqualTo(record.getLabName());
+	    Long l = labArrangementMapper.countByExample(example);
+	   System.out.println(record.getLabStartTime().toString());
+	    int i = l.intValue();
+	    if(i == 0){
+	        labArrangementMapper.insertSelective(record);
+	    }
+	    return i;
 
 	}
 
@@ -31,7 +39,9 @@ public class LaboratoryServiceImpl implements LaboratoryService {
 	}
 
 	@Override
-	public void update(LaboratoryArrangement record,LaboratoryArrangementExample example) {
+	public void update(LaboratoryArrangement record) {
+	    LaboratoryArrangementExample example = new LaboratoryArrangementExample();
+      example.createCriteria().andLabNameEqualTo(record.getLabName());
 	    labArrangementMapper.updateByExampleSelective(record, example);
 		
 	}
