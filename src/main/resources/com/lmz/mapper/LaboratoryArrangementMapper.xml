@@ -195,6 +195,37 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  
+  <select id="countByTime" parameterType="com.lmz.vo.LaboratoryArrangement" resultType="java.lang.Long">
+    select count(*) from laboratory_arrangement where lab_name = #{labName,jdbcType=VARCHAR}
+   	<if test="labStartTime != null and labStartTime != '' ">
+		  and lab_start_time <![CDATA[ <= ]]>#{labStartTime,jdbcType=VARCHAR}
+	</if>
+	<if test="labEndTime != null and labEndTime != '' ">
+		  	and lab_End_time <![CDATA[ >= ]]>#{labEndTime,jdbcType=VARCHAR}
+	</if>
+  </select>
+  
+    <select id="countByTime1" parameterType="com.lmz.vo.LaboratoryArrangement" resultType="java.lang.Long">
+    select count(*) from laboratory_arrangement where lab_name = #{labName,jdbcType=VARCHAR}
+   	<if test="labStartTime != null and labStartTime != '' ">
+		  and lab_start_time <![CDATA[ >= ]]>#{labStartTime,jdbcType=VARCHAR}
+	</if>
+	<if test="labEndTime != null and labEndTime != '' ">
+		  	and lab_start_time <![CDATA[ <= ]]>#{labEndTime,jdbcType=VARCHAR}
+	</if>
+  </select>
+  
+    <select id="countByTime2" parameterType="com.lmz.vo.LaboratoryArrangement" resultType="java.lang.Long">
+    select count(*) from laboratory_arrangement where lab_name = #{labName,jdbcType=VARCHAR}
+   	<if test="labStartTime != null and labStartTime != '' ">
+		  and lab_End_time <![CDATA[ >= ]]>#{labStartTime,jdbcType=VARCHAR}
+	</if>
+	<if test="labEndTime != null and labEndTime != '' ">
+		  	and lab_End_time <![CDATA[ <= ]]>#{labEndTime,jdbcType=VARCHAR}
+	</if>
+  </select>
+  
   <update id="updateByExampleSelective" parameterType="map">
     update laboratory_arrangement
     <set>

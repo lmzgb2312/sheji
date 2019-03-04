@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface LabExtendInfoMapper {
     long countByExample(LabExtendInfoExample example);
+    
 
     int deleteByExample(LabExtendInfoExample example);
 

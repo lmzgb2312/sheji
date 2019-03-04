@@ -55,8 +55,10 @@ function link(){
 		                if (result=="0") {
 		                  alert("保存成功")
 		                  location.reload();
-		                } else {
-		                  alert("该实验室预约信息已存在，请重新输入")
+		                } else if(result == "1"){
+		                  alert("此时间段内该实验室预约信息已存在，请重新输入")
+		                }else if(result == "2"){
+		                	alert("请输入正确的时间")
 		                }
 		            },
 		            error : function(e) {
