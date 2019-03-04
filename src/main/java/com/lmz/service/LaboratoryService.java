@@ -13,7 +13,7 @@ public interface LaboratoryService {
 	
 	void delete(Integer id);
 	
-	void update(LaboratoryArrangement record);
+	Integer update(LaboratoryArrangement record);
 	
 	List<LaboratoryArrangement> get(LaboratoryArrangementExample  example);
 	

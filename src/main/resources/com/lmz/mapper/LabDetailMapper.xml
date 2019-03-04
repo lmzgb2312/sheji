@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmz.dao.LabDetailMapper">
+  <resultMap id="BaseResultMap" type="com.lmz.vo.LabDetail">
+    <id column="lab_detail_id" jdbcType="INTEGER" property="labDetailId" />
+    <result column="lab_detail_name" jdbcType="VARCHAR" property="labDetailName" />
+    <result column="lab_detail_teacher" jdbcType="VARCHAR" property="labDetailTeacher" />
+    <result column="lab_detail_instruction" jdbcType="VARCHAR" property="labDetailInstruction" />
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    lab_detail_id, lab_detail_name, lab_detail_teacher, lab_detail_instruction, gmt_created
+  </sql>
+  <select id="selectByExample" parameterType="com.lmz.vo.LabDetailExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from lab_detail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lab_detail
+    where lab_detail_id = #{labDetailId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from lab_detail
+    where lab_detail_id = #{labDetailId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lmz.vo.LabDetailExample">
+    delete from lab_detail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lmz.vo.LabDetail">
+    insert into lab_detail (lab_detail_id, lab_detail_name, lab_detail_teacher, 
+      lab_detail_instruction, gmt_created)
+    values (#{labDetailId,jdbcType=INTEGER}, #{labDetailName,jdbcType=VARCHAR}, #{labDetailTeacher,jdbcType=VARCHAR}, 
+      #{labDetailInstruction,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lmz.vo.LabDetail">
+    insert into lab_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="labDetailId != null">
+        lab_detail_id,
+      </if>
+      <if test="labDetailName != null">
+        lab_detail_name,
+      </if>
+      <if test="labDetailTeacher != null">
+        lab_detail_teacher,
+      </if>
+      <if test="labDetailInstruction != null">
+        lab_detail_instruction,
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="labDetailId != null">
+        #{labDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="labDetailName != null">
+        #{labDetailName,jdbcType=VARCHAR},
+      </if>
+      <if test="labDetailTeacher != null">
+        #{labDetailTeacher,jdbcType=VARCHAR},
+      </if>
+      <if test="labDetailInstruction != null">
+        #{labDetailInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lmz.vo.LabDetailExample" resultType="java.lang.Long">
+    select count(*) from lab_detail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update lab_detail
+    <set>
+      <if test="record.labDetailId != null">
+        lab_detail_id = #{record.labDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="record.labDetailName != null">
+        lab_detail_name = #{record.labDetailName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labDetailTeacher != null">
+        lab_detail_teacher = #{record.labDetailTeacher,jdbcType=VARCHAR},
+      </if>
+      <if test="record.labDetailInstruction != null">
+        lab_detail_instruction = #{record.labDetailInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreated != null">
+        gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update lab_detail
+    set lab_detail_id = #{record.labDetailId,jdbcType=INTEGER},
+      lab_detail_name = #{record.labDetailName,jdbcType=VARCHAR},
+      lab_detail_teacher = #{record.labDetailTeacher,jdbcType=VARCHAR},
+      lab_detail_instruction = #{record.labDetailInstruction,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lmz.vo.LabDetail">
+    update lab_detail
+    <set>
+      <if test="labDetailName != null">
+        lab_detail_name = #{labDetailName,jdbcType=VARCHAR},
+      </if>
+      <if test="labDetailTeacher != null">
+        lab_detail_teacher = #{labDetailTeacher,jdbcType=VARCHAR},
+      </if>
+      <if test="labDetailInstruction != null">
+        lab_detail_instruction = #{labDetailInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lab_detail_id = #{labDetailId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lmz.vo.LabDetail">
+    update lab_detail
+    set lab_detail_name = #{labDetailName,jdbcType=VARCHAR},
+      lab_detail_teacher = #{labDetailTeacher,jdbcType=VARCHAR},
+      lab_detail_instruction = #{labDetailInstruction,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP}
+    where lab_detail_id = #{labDetailId,jdbcType=INTEGER}
+  </update>
+</mapper>

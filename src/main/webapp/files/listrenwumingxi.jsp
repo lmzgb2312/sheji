@@ -40,11 +40,12 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 -->
 </style>
 
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../../css/css.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.9.1.min.js"></script>
 <script type="text/JavaScript">
 
 </script>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){
@@ -83,7 +84,7 @@ function link(){
   <tr>
     <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td height="62" background="../images/nav04.gif">
+        <td height="62" background="../../images/nav04.gif">
           
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		  <tr>
@@ -103,44 +104,48 @@ function link(){
                 <td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 
 	              <tr class="CTitle" >
-                    	<td height="22" colspan="7" align="center" style="font-size:16px">实验课使用详情</td>
+                    	<td height="22" colspan="7" align="center" style="font-size:16px">实验室详情</td>
                   </tr>
                   <tr>
-				    <td width="30%" height="20" align="center" bgcolor="#FFFFFF">实验室名称</td>
-                    <td width="40%" align="center" bgcolor="#FFFFFF">使用时间</td>
-                     <td width="30%" height="20" align="center" bgcolor="#FFFFFF">使用状态</td>
+				    <td width="20%" height="20" align="center" bgcolor="#FFFFFF">实验室名称</td>
+                    <td width="20%" align="center" bgcolor="#FFFFFF">负责人</td>
+                     <td width="20%" height="20" align="center" bgcolor="#FFFFFF">修改时间</td>
+                      <td width="40%" height="20" align="center" bgcolor="#FFFFFF">说明</td>
                     </tr>
+             
 					<tr>
-				    <td height="20" align="center" bgcolor="#FFFFFF">成栋楼811</td>
-                    <td height="20" align="center" bgcolor="#FFFFFF">8:00~9:35</td>
-                    <td height="20" align="center" bgcolor="#FFFFFF">未使用</td>
+				    <td height="20" align="center" bgcolor="#FFFFFF">${record.labDetailName}</td>
+                    <td height="20" align="center" bgcolor="#FFFFFF">${record.labDetailTeacher}</td>
+                    <td height="20" align="center" bgcolor="#FFFFFF">${record.gmtCreated}</td>
+                    <td height="40" align="center" bgcolor="#FFFFFF">${record.labDetailInstruction}</td>
                     </tr>
+              
                 
                 </table></td>
               </tr>
             </table></td>
         </tr>
       </table>
-      <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td>
-        </tr>
-        <tr>
-          <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
-              <tr>
-                <td width="50%">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-                <td width="49%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] 转至：</td>
-                <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td>
-                      <td width="87%"><input name="Submit23222" type="submit" class="right-button06" value=" " />
-                      </td>
-                    </tr>
-                </table></td>
-              </tr>
-          </table></td>
-        </tr>
-      </table></td>
+<!--       <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"> -->
+<!--         <tr> -->
+<!--           <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td> -->
+<!--         </tr> -->
+<!--         <tr> -->
+<!--           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08"> -->
+<!--               <tr> -->
+<!--                 <td width="50%">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页</td> -->
+<!--                 <td width="49%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] 转至：</td> -->
+<!--                 <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0"> -->
+<!--                     <tr> -->
+<!--                       <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td> -->
+<!--                       <td width="87%"><input name="Submit23222" type="submit" class="right-button06" value=" " /> -->
+<!--                       </td> -->
+<!--                     </tr> -->
+<!--                 </table></td> -->
+<!--               </tr> -->
+<!--           </table></td> -->
+<!--         </tr> -->
+<!--       </table></td> -->
   </tr>
 </table>
 </form>

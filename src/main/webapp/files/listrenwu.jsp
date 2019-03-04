@@ -47,8 +47,13 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 
 </script>
 <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.9.1.min.js"></script>
 </head>
 <SCRIPT language=JavaScript>
+$("#_btn").click(function(){
+	alert("111")
+})
+
 function sousuo(){
 	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
 }
@@ -72,7 +77,7 @@ function unselectAll(){
 }
 
 function link(){
-    document.getElementById("fom").action="addrenwu.htm";
+    document.getElementById("fom").action="../../files/addrenwu.jsp";
    document.getElementById("fom").submit();
 }
 
@@ -106,7 +111,7 @@ function link(){
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="20"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-	              <input name="Submit" type="button" class="right-button08" value="删除所选课程" />
+	              <input name="Submit" type="button" class="right-button08" id="_btn" value="删除所选课程" />
 	              <input name="Submit2" type="button" class="right-button08" value="添加实践课程" onclick="link();"/></td>
           	 </tr>
               <tr>

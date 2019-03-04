@@ -24,22 +24,12 @@ document.getElementById("aa").style.display="";
 }
 
 
-// $(function(){
-// 	alert(11)
-// 	$("#labName").click(function(){
-// 		$.get("../../course/getName",,function(data){
-// 			$("#labName").html(data);
-// 		})	
-// 	})
-	
-// })
-
 function link(){
 
 //     document.getElementById("fom").action="../course/save";
 //     document.getElementById("fom").submit();
    //  alert('保存成功！');
-	if(fom.labName.value=="" || fom.labStartTime.value=="" || fom.labEndTime.value=="" || fom.labTeacher.value=="" || fom.labPersonAmount.value==""){
+	if(fom.labDetailName.value=="" || fom.labDetailTeacher.value=="" || fom.labDetailInstruction.value=="" ){
 		
 		alert("请将信息填写完整")
 		
@@ -49,14 +39,14 @@ function link(){
 		        //几个参数需要注意一下
 		            type: "POST",//方法类型
 		            dataType: "text",//预期服务器返回的数据类型
-		            url: "../course/save" ,//url
+		            url: "../detail/save" ,//url
 		            data: $('#fom').serialize(),
 		            success : function(result) {
 		                if (result=="0") {
 		                  alert("保存成功")
 		                  location.reload();
 		                } else {
-		                  alert("该实验室预约信息已存在，请重新输入")
+		                  alert("该实验室已存在，请重新输入")
 		                }
 		            },
 		            error : function(e) {
@@ -68,17 +58,17 @@ function link(){
    
 }
 
-//时间选择器
-laydate.render({
-  elem: '#labStartTime'
-  ,type: 'datetime'
-});
+// //时间选择器
+// laydate.render({
+//   elem: '#labStartTime'
+//   ,type: 'datetime'
+// });
 
-//时间选择器
-laydate.render({
-  elem: '#labEndTime'
-  ,type: 'datetime'
-});
+// //时间选择器
+// laydate.render({
+//   elem: '#labEndTime'
+//   ,type: 'datetime'
+// });
 
 
 </script>
@@ -91,7 +81,6 @@ laydate.render({
 
 <body class="ContentBody">
   <form action="" method="post"  name="fom" id="fom"  >
- 
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
@@ -115,45 +104,17 @@ laydate.render({
 					 
 					  <tr>
 					    <td nowrap align="right" width="13%" >实验室名称:</td>
-					    <td width="41%">
-					    <select name="labName" id="labName">
-					    <c:forEach items="${listName}" var="proList">
-                              <option>${proList}</option>
-                      </c:forEach>
-					    </select>
-<!-- 					    <input name="labName" id="labName" class="text" style="width:250px" type="text" size="40" /> -->
+					    <td width="41%"><input name="labDetailName" id="labDetailName" class="text" style="width:250px" type="text" size="40" />
 				        <span class="red"> *</span></td>
-					    <td align="right" width="19%">允许人数:</td>
-					    <td width="27%"><input name="labPersonAmount" id="labPersonAmount" class="text" style="width:154px" />
-					    <span class="red"> *</span></td>
 					    </tr>
-					  <tr>
-					    <td nowrap align="right">开始时间:</td>
-<!-- 					    <td><input id="labStartTime" name="labStartTime" type="datetime-local"/> </td> -->
-					    <td><input name="labStartTime" id="labStartTime" class="time" style="width:154px" />
-					    <span class="red"> *</span></td>
-					     <td nowrap align="right">结束时间:</td>
-<!-- 					     <td><input id="labEndTime" name="labEndTime" type="datetime-local"/> </td> -->
-					    <td><input name="labEndTime" id="labEndTime" class="text" style="width:154px" />
-					    <span class="red"> *</span></td>
-					  </tr>
 					   <tr>
-					    <td nowrap align="right">任课老师:</td>
-					    <td><input name="labTeacher" id="labTeacher" class="text" style="width:154px" />
+					    <td nowrap align="right">负责人:</td>
+					    <td><input name="labDetailTeacher" id="labDetailTeacher" class="text" style="width:154px" />
 					    <span class="red"> *</span></td>
-					    <td align="right">选择时段:</td>
-					    <td><input name="timePeriod" id="timePeriod" class="text" style="width:154px" />
-<!-- 					    <select name="timeperiod" > -->
-<!--                           <option  selected="selected">==请选择==</option> -->
-<!--                           <option selected="selected">30</option> -->
-<!--                           <option>60</option>                          -->
-<!--                           <option>90</option> -->
-<!--                         </select> -->
-                        <span class="black">分钟</span></td>
 					  </tr>
 					  <tr>
 					    <td nowrap align="right" height="120px">实验室说明:</td>
-					    <td colspan="3"><textarea id="labInstruction" name="labInstruction"   rows="5" cols="80"></textarea></td>
+					    <td colspan="3"><textarea id="labDetailInstruction" name="labDetailInstruction"   rows="5" cols="80"></textarea></td>
 					    </tr>
 					  </table>
 			 <br />
