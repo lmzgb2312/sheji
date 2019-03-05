@@ -31,9 +31,6 @@ public class LaboratoryServiceImpl implements LaboratoryService {
 	@Override
 	@Transactional
 	public Integer save(LaboratoryArrangement record) {
-	    LaboratoryArrangementExample example = new LaboratoryArrangementExample();
-	    LaboratoryArrangementExample example1 = new LaboratoryArrangementExample();
-	    LaboratoryArrangementExample example2 = new LaboratoryArrangementExample();
 	    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    LabExtendInfo labExtendInfo = new LabExtendInfo();
 	    labExtendInfo.setLabExtendAmount(record.getLabPersonAmount());
@@ -41,6 +38,7 @@ public class LaboratoryServiceImpl implements LaboratoryService {
 	    labExtendInfo.setLabExtendName(record.getLabName());
 	    labExtendInfo.setLabExtendPeriodTime(record.getTimePeriod());
 	    labExtendInfo.setLabExtendTeacher(record.getLabTeacher());
+	    labExtendInfo.setUid(record.getLabId());
 	    //获取判断条件 只有插入的数据的结束时间小于数据库中数据的开始时间 或  插入数据的开始时间大于数据库数据的结束时间 
 	    System.err.println(record.getLabStartTime());
 	  
@@ -75,16 +73,19 @@ public class LaboratoryServiceImpl implements LaboratoryService {
 	    //根据时间间隔将时间段分成若干
 	    if(i == 0 && btime && i1==0 && i2==0){
 	        labArrangementMapper.insertSelective(record);
+	        Integer id = labArrangementMapper.selectByTime(record);
 	        Long firstTime = s;
 	        Long lastTime = firstTime+ptime;
 	        labExtendInfo.setLabExtendStartTime(sdf.format(firstTime));
 	        labExtendInfo.setLabExtendEndTime(sdf.format(lastTime));
+	        labExtendInfo.setUid(id);
 	        labExtendInfoMapper.insertSelective(labExtendInfo);
 	       while(lastTime<e){
 	            firstTime = lastTime + interval;
 	            lastTime = firstTime+ptime;
 	            labExtendInfo.setLabExtendStartTime(sdf.format(firstTime));
 	            labExtendInfo.setLabExtendEndTime(sdf.format(lastTime));
+	            labExtendInfo.setUid(id);
 	            labExtendInfoMapper.insertSelective(labExtendInfo);
 	        }
 	       LabExtendInfoExample example3 = new LabExtendInfoExample();

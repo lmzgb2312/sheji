@@ -72,4 +72,17 @@
   2019-03-04 11:22:30 JakartaCommonsLoggingImpl.java DEBUG Found column "gmt_modified", data type 93, in table "sheji..lab_extend_info"
   2019-03-04 11:22:30 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_amount", data type 4, in table "sheji..lab_extend_info"
   2019-03-04 11:22:30 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_current", data type 4, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Logging initialized using 'org.mybatis.generator.logging.commons.JakartaCommonsLoggingLogFactory@326de728' adapter.
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Retrieving column information for table "lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "id", data type 4, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_name", data type 12, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_teacher", data type 12, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_start_time", data type 93, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_end_time", data type 93, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_period_time", data type 4, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "gmt_created", data type 93, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "gmt_modified", data type 93, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_amount", data type 4, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_current", data type 4, in table "sheji..lab_extend_info"
+  2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "uid", data type 4, in table "sheji..lab_extend_info"
   

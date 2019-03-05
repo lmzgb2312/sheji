@@ -334,4 +334,17 @@
       time_period = #{timePeriod,jdbcType=INTEGER}
     where lab_id = #{labId,jdbcType=INTEGER}
   </update>
+  
+  
+  <select id="selectByTime" parameterType="com.lmz.vo.LaboratoryArrangement" resultType="java.lang.Integer">
+    select 
+    lab_id
+    from laboratory_arrangement where
+   <if test="labStartTime != null and labStartTime != '' ">
+		   lab_start_time <![CDATA[ = ]]>#{labStartTime,jdbcType=VARCHAR}
+	</if>
+	<if test="labEndTime != null and labEndTime != '' ">
+		  	and lab_End_time <![CDATA[ = ]]>#{labEndTime,jdbcType=VARCHAR}
+	</if>
+  </select>
 </mapper>

@@ -111,8 +111,8 @@ function link(){
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="20"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-	              <input name="Submit" type="button" class="right-button08" id="_btn" value="删除所选课程" />
-	              <input name="Submit2" type="button" class="right-button08" value="添加实践课程" onclick="link();"/></td>
+	              <input name="Submit" type="button" class="right-button08" id="_btn" value="删除所选实验室" />
+	              <input name="Submit2" type="button" class="right-button08" value="添加预约实验室" onclick="link();"/></td>
           	 </tr>
               <tr>
                 <td height="40" class="font42">
@@ -123,8 +123,9 @@ function link(){
                   <tr bgcolor="#EEEEEE">
 				    <td width="4%" align="center" height="30">选择</td>
                     <td width="10%">实验室名称</td>
-                    <td width="10%">实验室负责人</td>
-					<td width="10%">创建时间</td>
+                    <td width="10%">任课老师</td>
+					<td width="10%">开始时间</td>
+					<td width="10%">结束时间</td>
 					<td width="12%">操作</td>
                   </tr>
                 <c:forEach items="${pageInfo.list }" var="b">
@@ -132,8 +133,8 @@ function link(){
 				    <td height="20"><input type="checkbox" name="delid"/></td>
                     <td >${b.labName}</td>
                     <td>${b.labTeacher}</td>
-                     <td>${b.gmtCreated}</td>
-                     
+                     <td>${b.labStartTime}</td>
+                      <td>${b.labEndTime}</td>
                     <td><a href="../../files/editrenwu.htm">编辑|</a><a href="../../files/listrenwumingxi.jsp">查看|</a>
 					<a href="../../course/delete/${b.labId}">删除</a></td>
                   </tr>

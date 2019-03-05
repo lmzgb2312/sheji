@@ -12,6 +12,7 @@ public interface LaboratoryArrangementMapper {
     long countByTime(LaboratoryArrangement record);
     long countByTime1(LaboratoryArrangement record);
     long countByTime2(LaboratoryArrangement record);
+    Integer selectByTime(LaboratoryArrangement record);
     
     int deleteByExample(LaboratoryArrangementExample example);
 
