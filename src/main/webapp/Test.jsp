@@ -1,20 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>开始使用layui</title>
+  <link rel="stylesheet" href="../layui/css/layui.css">
 </head>
 <body>
-
-      <form action="course/save" method="post">
-
-		cid<input type="text" name="cid" /><br/> 
-		coursename<input type="text" name="courseName" /><br/>
-		coursehour<input type="text" name="courseHour" /><br/>
-		<input type="submit" value="保存"/>
-	</form>
-
+ 
+hello world
+ 
+<script src="../../layui-v2.4.5/layui/layui.js"></script>
+<script>
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg('Hello World');
+});
+</script> 
 </body>
 </html>

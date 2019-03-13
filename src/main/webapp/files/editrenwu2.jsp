@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>东北林业大学实验室预约管理平台</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" rev="stylesheet" href="../../css/style.css" type="text/css" media="all" />
 <script src="<%=request.getContextPath() %>/js/layDate-v5.0.9/laydate/laydate.js"></script>
  <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.9.1.min.js"></script>
 <script language="JavaScript" type="text/javascript">
@@ -54,7 +54,7 @@ function link(){
 		        //几个参数需要注意一下
 		            type: "POST",//方法类型
 		            dataType: "text",//预期服务器返回的数据类型
-		            url: "../course/save" ,//url
+		            url: "../update" ,//url
 		            data: $('#fom').serialize(),
 		            success : function(result) {
 		                if (result=="0") {
@@ -77,6 +77,7 @@ function link(){
 
 
 
+
 </script>
 <style type="text/css">
 <!--
@@ -86,10 +87,8 @@ function link(){
 </head>
 
 <body class="ContentBody">
-
-
   <form action="" method="post"  name="fom" id="fom"  >
- 
+ <input id="labId" name="labId" type="hidden"  value="${record.labId}"/>
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
@@ -100,7 +99,7 @@ function link(){
 		
 		<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 		<tr><td align="left">
-<!-- 		<input type="button" name="Submit" value="保存" class="button" onclick="link();"/>　 -->
+		<input type="button" name="Submit" value="保存" class="button" onclick="link();"/>　
 			
 <!-- 			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/> -->
 		</td></tr>
@@ -115,32 +114,32 @@ function link(){
 					    <td nowrap align="right" width="13%" >实验室名称:</td>
 					    <td width="41%">
 					    <select name="labName" id="labName">
-					    <c:forEach items="${listName}" var="proList">
-                              <option>${proList}</option>
-                      </c:forEach>
+					    
+                              <option>${record.labName}</option>
+                 
 					    </select>
 <!-- 					    <input name="labName" id="labName" class="text" style="width:250px" type="text" size="40" /> -->
 				        <span class="red"> *</span></td>
 					    <td align="right" width="19%">允许人数:</td>
-					    <td width="27%"><input name="labPersonAmount" id="labPersonAmount" class="text" style="width:154px" />
+					    <td width="27%"><input name="labPersonAmount" id="labPersonAmount" value="${record.labPersonAmount }" class="text" style="width:154px" />
 					    <span class="red"> *</span></td>
 					    </tr>
 					  <tr>
 					    <td nowrap align="right">开始时间:</td>
 <!-- 					    <td><input id="labStartTime" name="labStartTime" type="datetime-local"/> </td> -->
-					    <td><input name="labStartTime" id="labStartTime" class="text" style="width:154px" />
+					    <td><input name="labStartTime" id="labStartTime" value="${record.labStartTime }" class="time" style="width:154px" />
 					    <span class="red"> *</span></td>
 					     <td nowrap align="right">结束时间:</td>
 <!-- 					     <td><input id="labEndTime" name="labEndTime" type="datetime-local"/> </td> -->
-					    <td><input name="labEndTime" id="labEndTime" class="text" style="width:154px" />
+					    <td><input name="labEndTime" id="labEndTime" value="${record.labEndTime }" class="text" style="width:154px" />
 					    <span class="red"> *</span></td>
 					  </tr>
 					   <tr>
 					    <td nowrap align="right">任课老师:</td>
-					    <td><input name="labTeacher" id="labTeacher" class="text" style="width:154px" />
+					    <td><input name="labTeacher" id="labTeacher" value="${record.labTeacher }" class="text" style="width:154px" />
 					    <span class="red"> *</span></td>
 					    <td align="right">选择时段:</td>
-					    <td><input name="timePeriod" id="timePeriod" class="text" style="width:154px" />
+					    <td><input name="timePeriod" id="timePeriod" value="${record.timePeriod }" class="text" style="width:154px" />
 <!-- 					    <select name="timeperiod" > -->
 <!--                           <option  selected="selected">==请选择==</option> -->
 <!--                           <option selected="selected">30</option> -->
@@ -151,7 +150,7 @@ function link(){
 					  </tr>
 					  <tr>
 					    <td nowrap align="right" height="120px">实验室说明:</td>
-					    <td colspan="3"><textarea id="labInstruction" name="labInstruction"   rows="5" cols="80"></textarea></td>
+					    <td colspan="3"><textarea id="labInstruction" name="labInstruction"   rows="5" cols="80">${record.labInstruction}</textarea></td>
 					    </tr>
 					  </table>
 			 <br />
@@ -189,6 +188,7 @@ function link(){
 </div>
 </form>
 <script>
+
 //时间选择器
 laydate.render({
   elem: '#labStartTime'

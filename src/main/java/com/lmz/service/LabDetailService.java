@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lmz.vo.LabDetail;
 import com.lmz.vo.LabDetailExample;
+import com.lmz.vo.LabExtendInfo;
 
 
 
@@ -19,4 +20,6 @@ public interface LabDetailService {
     List<LabDetail> get(LabDetailExample  example);
     
     LabDetail queryOne(Integer id);
+    
+
 }

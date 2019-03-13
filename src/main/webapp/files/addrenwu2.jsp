@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>东北林业大学实验室预约管理平台</title>
 <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
-<script src="<%=request.getContextPath() %>/js/layDate-v5.0.9/laydate/laydate.js"></script>
  <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.9.1.min.js"></script>
 <script language="JavaScript" type="text/javascript">
 function tishi()

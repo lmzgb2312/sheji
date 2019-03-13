@@ -19,21 +19,20 @@
 </head>
 <body>
 <input type="text" class="demo-input" placeholder="请选择日期" id="test1">
-<script src="js/layDate-v5.0.9/laydate/laydate.js"></script>
+
+<div class="demo-footer">
+  <a href="http://www.layui.com/laydate/" target="_blank">layDate<cite id="version"></cite></a>
+  <a href="http://www.layui.com/doc/modules/laydate.html" target="_blank">文档</a>
+  <span>&copy; <a href="http://www.layui.com/" target="_blank">layui.com</a> By 贤心<span>
+</div>
 
 <script src="laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script>
-//lay('#version').html('-v'+ laydate.v);
+lay('#version').html('-v'+ laydate.v);
 
 //执行一个laydate实例
-// laydate.render({
-//   elem: '#test1' //指定元素
-// });
-
-//时间选择器
 laydate.render({
-  elem: '#test1'
-  ,type: 'datetime'
+  elem: '#test1' //指定元素
 });
 </script>
 </body>

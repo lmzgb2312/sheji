@@ -55,17 +55,6 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 
 
 $(function(){
-	
-	$("#btn").click(function(){
-		
-		  document.getElementById("fom").action="../../course/getPageOne/1";
-		   document.getElementById("fom").submit();
-		
-	})
-		
-	
-	
-	
 	  $("#_btn").click(function(){
 	        /**获取下面选中的checkbox*/
 	        var checkedbox = $("input[id^='box_']:checked");
@@ -143,8 +132,8 @@ function link(){
 		    <tr>
 			  <td width="21"><img src="../../images/ico07.gif" width="20" height="18" /></td>
 			  <td width="538">查看内容：按实验室名称：
-                 <input name="labName" id="labName" class="text" style="width:154px" />
-<input name="btn" type="button" class="right-button02" id="btn" value="查 询" /></td>
+                 <input name="projectName" id="projectName" class="text" style="width:154px" />
+<input name="Submit4" type="button" class="right-button02" value="查 询" /></td>
 <!-- 			   <td width="144" align="left"><a href="#" onclick="sousuo()"> -->
 <!-- 			     <input name="Submit3" type="button" class="right-button07" value="高级搜索" /> -->
 <!-- 			   </a></td>	 -->

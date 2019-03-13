@@ -140,12 +140,10 @@
       <if test="labPersonAmount != null">
         lab_person_amount,
       </if>
-      <if test="gmtCreated != null">
         gmt_created,
-      </if>
-      <if test="gmtModified != null">
-        gmt_modified,
-      </if>
+<!--       <if test="gmtModified != null"> -->
+<!--         gmt_modified, -->
+<!--       </if> -->
       <if test="labPersonAmountNow != null">
         lab_person_amount_now,
       </if>
@@ -175,18 +173,19 @@
       <if test="labPersonAmount != null">
         #{labPersonAmount,jdbcType=INTEGER},
       </if>
-      <if test="gmtCreated != null">
-        #{gmtCreated,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null">
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
+      
+        now(),
+      
+<!--       <if test="gmtModified != null"> -->
+<!--         #{gmtModified,jdbcType=TIMESTAMP}, -->
+<!--       </if> -->
       <if test="labPersonAmountNow != null">
         #{labPersonAmountNow,jdbcType=INTEGER},
       </if>
       <if test="timePeriod != null">
         #{timePeriod,jdbcType=INTEGER},
       </if>
+
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.lmz.vo.LaboratoryArrangementExample" resultType="java.lang.Long">
@@ -308,17 +307,15 @@
       <if test="gmtCreated != null">
         gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       </if>
-      <if test="gmtModified != null">
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
       <if test="labPersonAmountNow != null">
         lab_person_amount_now = #{labPersonAmountNow,jdbcType=INTEGER},
       </if>
       <if test="timePeriod != null">
         time_period = #{timePeriod,jdbcType=INTEGER},
       </if>
+      gmt_modified = now()
     </set>
-    where lab_id = #{labId,jdbcType=INTEGER}
+    where lab_id = #{labId,jdbcType=INTEGER} 
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lmz.vo.LaboratoryArrangement">
     update laboratory_arrangement
