@@ -153,4 +153,37 @@ public class LaboratoryController {
         return "listrenwu4";
 
     }
+    
+    
+    @RequestMapping("/getExtendAll/{page}")
+    //@ResponseBody
+    public String getExtendAll(@PathVariable("page") Integer page,Map<String, Object> map,LabExtendInfoExample example) {
+      
+        System.out.println("进入了getExtendAll方法");
+        PageHelper.startPage(page, 5);
+        List<LabExtendInfo> list = labService.getExtendAll(example);
+        PageInfo<LabExtendInfo> pageInfo = new PageInfo<LabExtendInfo>(list);
+        map.put("pageInfo", pageInfo);
+
+        return "listxiangmuxinxi";
+
+    }
+    
+    
+    @RequestMapping("/getExtendOne/{page}")
+    //@ResponseBody
+    public String getExtendOne(@PathVariable("page") Integer page, @RequestParam("_labExtendName") String labExtendName,Map<String, Object> map,LabExtendInfoExample example) {
+      
+        System.out.println("进入了getExtendAll方法");
+        PageHelper.startPage(page, 5);
+        if(labExtendName!=null){
+            example.createCriteria().andLabExtendNameEqualTo(labExtendName) ;
+        }
+        List<LabExtendInfo> list = labService.getExtendAll(example);
+        PageInfo<LabExtendInfo> pageInfo = new PageInfo<LabExtendInfo>(list);
+        map.put("pageInfo", pageInfo);
+
+        return "listxiangmuxinxi";
+
+    }
 }

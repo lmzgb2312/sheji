@@ -27,5 +27,7 @@ public interface LaboratoryService {
 
   
   List<LabExtendInfo> get1(LabExtendInfoExample  example);
+  
+  List<LabExtendInfo> getExtendAll(LabExtendInfoExample  example);
 	
 }

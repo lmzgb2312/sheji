@@ -270,4 +270,27 @@ return null;
         return labExtendInfoMapper.selectByExample(example);
     }
 
+    /** 
+     * @param example
+     * @return
+     * @see com.lmz.service.LaboratoryService#get(com.lmz.vo.LabExtendInfoExample)
+     */
+    @Override
+    public List<LabExtendInfo> getExtendAll(LabExtendInfoExample example) {
+
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        List<LabExtendInfo> list = labExtendInfoMapper.selectByExample(example);
+        for(LabExtendInfo info : list){
+            try {
+                info.setLabExtendStartTime(sdf.format(sdf.parse(info.getLabExtendStartTime())));
+                info.setLabExtendEndTime(sdf.format(sdf.parse(info.getLabExtendEndTime())));;
+            
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }  
+            return list;
+    }
+
 }

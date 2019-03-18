@@ -85,4 +85,16 @@
   2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_amount", data type 4, in table "sheji..lab_extend_info"
   2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_extend_current", data type 4, in table "sheji..lab_extend_info"
   2019-03-05 10:07:15 JakartaCommonsLoggingImpl.java DEBUG Found column "uid", data type 4, in table "sheji..lab_extend_info"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Logging initialized using 'org.mybatis.generator.logging.commons.JakartaCommonsLoggingLogFactory@326de728' adapter.
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Retrieving column information for table "lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "id", data type 4, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_name", data type 12, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "start_time", data type 12, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "end_time", data type 12, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_teacher", data type 12, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_current", data type 4, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_max", data type 4, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "student_name", data type 12, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "student_id", data type 12, in table "sheji..lab_reservation"
+  2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_id", data type 4, in table "sheji..lab_reservation"
   
