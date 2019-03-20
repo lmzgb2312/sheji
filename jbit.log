@@ -97,4 +97,16 @@
   2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "student_name", data type 12, in table "sheji..lab_reservation"
   2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "student_id", data type 12, in table "sheji..lab_reservation"
   2019-03-13 14:57:24 JakartaCommonsLoggingImpl.java DEBUG Found column "lab_id", data type 4, in table "sheji..lab_reservation"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Logging initialized using 'org.mybatis.generator.logging.commons.JakartaCommonsLoggingLogFactory@326de728' adapter.
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Retrieving column information for table "personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "id", data type 4, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "student_name", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "student_id", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "student_password", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "gender", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "college", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "major", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "contact", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "email", data type 12, in table "sheji..personal_information"
+  2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "tutor", data type 12, in table "sheji..personal_information"
   

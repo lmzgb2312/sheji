@@ -47,7 +47,7 @@
         </javaClientGenerator>
         <!-- 指定数据库表 -->
       
-          <table schema="" tableName="lab_reservation"></table>
+          <table schema="" tableName="personal_information"></table>
         
       <!--   <table schema="" tableName="account"></table> -->
         
