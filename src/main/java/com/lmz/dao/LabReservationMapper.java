@@ -3,6 +3,8 @@ package com.lmz.dao;
 import com.lmz.vo.LabReservation;
 import com.lmz.vo.LabReservationExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -31,4 +33,9 @@ public interface LabReservationMapper {
     
     @Select(" select count(*) from lab_reservation WHERE   lab_id = #{labId} and student_id = #{studentId} ")
     int countByLabIdAndStudentId(@Param("labId") Integer labId,@Param("studentId") String studentId);
+    
+    @Delete("delete from lab_reservation WHERE   lab_id = #{labId} and student_id = #{studentId}")
+    int  deleteByLabIdAndStudentId(@Param("labId") Integer labId,@Param("studentId") String studentId);
+    
+    List<LabReservation> getByLabNameAndSId(@Param("labName") String labName,@Param("studentId") String studentId);
 }

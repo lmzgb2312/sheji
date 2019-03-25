@@ -388,8 +388,8 @@ function list(idstr){
 				</tr>
 				<tr>
 				  <td width="9%" height="23" ><img id="xiaotu23" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="listgerenrenwu.htm" target="mainFrame" class="left-font03" 
-						onClick="tupian('23');">任务信息查看</a></td>
+				  <td width="91%"><a href="../reservation/get/1" target="mainFrame" class="left-font03" 
+						onClick="tupian('23');">个人预约实验室查看</a></td>
 				</tr>
       </table>
 		<!--  个人信息结束    -->

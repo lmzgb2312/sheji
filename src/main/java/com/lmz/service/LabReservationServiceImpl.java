@@ -63,13 +63,10 @@ public class LabReservationServiceImpl implements LabReservationService {
     public Integer delete(String studentId, Integer labId) {
 
         
-        LabReservationExample example = new LabReservationExample();
-        example.createCriteria().andStudentIdEqualTo(studentId);
-        example.createCriteria().andLabIdEqualTo(labId);
-       Long l = labReservationMapper.countByExample(example);
-       Integer i = l.intValue();
+    
+       Integer i = labReservationMapper.countByLabIdAndStudentId(labId, studentId);
        if(i==1){
-           labReservationMapper.deleteByExample(example);  
+           labReservationMapper.deleteByLabIdAndStudentId(labId, studentId); 
        }
        
         return i;
@@ -87,6 +84,19 @@ public class LabReservationServiceImpl implements LabReservationService {
         LabReservationExample example = new LabReservationExample();
         example.createCriteria().andStudentIdEqualTo(studentId);
         return labReservationMapper.selectByExample(example);
+    }
+
+    /** 
+     * @param labName
+     * @param studentId
+     * @return
+     * @see com.lmz.service.LabReservationService#getByLabNameAndSId(java.lang.String, java.lang.String)
+     */
+    @Override
+    public List<LabReservation> getByLabNameAndSId(String labName, String studentId) {
+
+        // TODO Auto-generated method stub
+        return labReservationMapper.getByLabNameAndSId(labName, studentId);
     }
 
 }

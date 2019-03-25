@@ -60,78 +60,14 @@ $(function(){
 	
 	
 	$("#btn").click(function(){
-	    document.getElementById("fom").action="../../course/getExtendOne/1";
+	    document.getElementById("fom").action="../../reservation/getByLabNameAndSId/1";
 		document.getElementById("fom").submit();
 	})
 	
 	
 	
-	  $("#_btn").click(function(){
-	        /**获取下面选中的checkbox*/
-	        var checkedbox = $("input[id^='box_']:checked");
-	        if(checkedbox.length == 0){
-	            alert("请选择要删除的实验室！！！");
-	        }else{
-	            if(confirm("你确定要删除吗？？？")){
-	                   /**
-	                                                  如下面，如果调用map方法，
-	                                                   会把函数里面的返回值作为jquery对象--res返回
-	                                                  注意，这里的res.toArray()等同于res.toArray().join(",");
-	                                                它默认就是这样做的呢，这个需要记住嘛
-	                   */
-	               var res = checkedbox.map(function(){
-	                     return this.value;
-	                 });
-	                     var array=new Array()
-	                     array=res.toArray().join(",");
-	                     $.ajax({
-	                              url: '../../course/deleteAmounts',
-	                              type: 'post',
-	                              data: {'array':array},
-	                            //  traditional:true,//用传统方式序列化数据
-	                              success:function(result){
-	                                    alert(result)
-	                                    location.reload();
-	                              }
-
-	                })                                 
-	              
-	          }
-	        }
-	    });
 })
 
-
-function yuyue(){
-		 $.ajax({
-	        url: '../../reservation/save',
-	        type: 'post',
-	        data: {studentId:2015211163,
-	        	   labId:$("#labId").val(),
-	        	   labName:$("#labName").val(),
-	        	   labTeacher:$("#labTeacher").val(),
-	        	   labMax:$("#labMax").val(),
-	        	   labCurrent:$("#labCurrent").val(),
-	        	   startTime:$("#startTime").val(),
-	        	   endTime:$("#endTime").val(),
-	        	   studentName:111
-	        },
-	        success:function(result){
-	              if(result == 0){
-	            	  alert("预约成功")
-	            	  location.reload();
-	              }else if(result == 1){
-	            	  alert("你已经预约过该实验室")
-	            	  location.reload();
-	              }else if(result == 2){
-	            	  alert("该实验室预约人数已满")
-	            	  location.reload();
-	              }
-	        }
-
-	    })                                 
-		
-}
 
 
 function sousuo(){
@@ -175,10 +111,10 @@ function link(){
             
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		    <tr>
-<!-- 			  <td width="21"><img src="../../images/ico07.gif" width="20" height="18" /></td> -->
-<!-- 			  <td width="538">查看内容：按实验室名称： -->
-<!--                  <input name="_labExtendName" id="_labExtendName" class="text" style="width:154px" /> -->
-<!-- <input name="Submit4" type="button" class="right-button02" id="btn" value="查 询" /></td> -->
+			  <td width="21"><img src="../../images/ico07.gif" width="20" height="18" /></td>
+			  <td width="538">查看内容：按实验室名称：
+                 <input name="labName" id="labName" class="text" style="width:154px" />
+<input name="Submit4" type="button" class="right-button02" id="btn" value="查 询" /></td>
 <!-- 			   <td width="144" align="left"><a href="#" onclick="sousuo()"> -->
 <!-- 			     <input name="Submit3" type="button" class="right-button07" value="高级搜索" /> -->
 <!-- 			   </a></td>	 -->
@@ -208,27 +144,23 @@ function link(){
                       <td width="25%" height="20" align="center" bgcolor="#FFFFFF">结束时间</td>
                        <td width="10%" height="20" align="center" bgcolor="#FFFFFF">允许人数</td>
                         <td width="10%" height="20" align="center" bgcolor="#FFFFFF">当前人数</td>
-                            <td width="30%" height="20" align="center" bgcolor="#FFFFFF">操作</td>
+                          <td width="30%" height="20" align="center" bgcolor="#FFFFFF">操作</td>
                     </tr>
+                <c:forEach items="${pageInfo.list }" var="b">
                  	<tr>
-				    <td height="10" align="center" bgcolor="#FFFFFF">${list[0].labExtendName}</td>
-                    <td height="10" align="center" bgcolor="#FFFFFF">${list[0].labExtendTeacher}</td>
-                    <td height="25" align="center" bgcolor="#FFFFFF">${list[0].labExtendStartTime}</td>
-                    <td height="25" align="center" bgcolor="#FFFFFF">${list[0].labExtendEndTime}</td>
-                    <td height="10" align="center" bgcolor="#FFFFFF">${list[0].labExtendAmount}</td>
-                    <td height="10" align="center" bgcolor="#FFFFFF">${list[0].labExtendCurrent}</td>
-            <input name="labId" id="labId" type="hidden" style="width:154px" value="${list[0].id}"/>
-            <input name="labName" id="labName" type="hidden" style="width:154px" value="${list[0].labExtendName}"/>
-            <input name="labTeacher" id="labTeacher" type="hidden" style="width:154px" value="${list[0].labExtendTeacher}"/>
-            <input name="startTime" id="startTime" type="hidden" style="width:154px" value="${list[0].labExtendStartTime}"/>
-            <input name="endTime" id="endTime" type="hidden" style="width:154px" value="${list[0].labExtendEndTime}"/>
-            <input name="labMax" id="labMax" type="hidden" style="width:154px" value="${list[0].labExtendAmount}"/>
-            <input name="labCurrent" id="labCurrent" type="hidden" style="width:154px" value="${list[0].labExtendCurrent}"/>
-                       <td height="30" align="center" bgcolor="#FFFFFF">
-                      <a href="javascript:void(0)" onClick="yuyue()" >预约</a>
+				    <td height="10" align="center" bgcolor="#FFFFFF">${b.labName}</td>
+                    <td height="10" align="center" bgcolor="#FFFFFF">${b.labTeacher}</td>
+                    <td height="25" align="center" bgcolor="#FFFFFF">${b.startTime}</td>
+                    <td height="25" align="center" bgcolor="#FFFFFF">${b.endTime}</td>
+                    <td height="10" align="center" bgcolor="#FFFFFF">${b.labMax}</td>
+                    <td height="10" align="center" bgcolor="#FFFFFF">${b.labCurrent}</td>
+<%--             <input name="labId" id="${b.id}" type="hidden" style="width:154px" value="${b.id}"/> --%>
+                      <td height="30" align="center" bgcolor="#FFFFFF">
+                      <a href="../../reservation/delete/${b.labId }" >取消预约</a>
 				    </td>
                     </tr>
                     
+			    </c:forEach>
             </table></td>
         </tr>
       </table>
@@ -238,7 +170,17 @@ function link(){
         </tr>
         <tr>
           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
-
+              <tr>
+                <td width="50%">共 <span class="right-text09">${pageInfo.total}</span> 条记录 | 共 <span class="right-text09">${pageInfo.pages}</span> 页 | 第 <span class="right-text09">${pageInfo.pageNum}</span> 页</td>
+                <td width="49%" align="right">[<a href="${pageInfo.firstPage }" class="right-font08">首页</a> | <a href="${pageInfo.prePage }" class="right-font08">上一页</a> | <a href="${pageInfo.nextPage }" class="right-font08">下一页</a> | <a href="${pageInfo.lastPage }" class="right-font08">末页</a>] </td>
+                <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0">
+<!--                     <tr> -->
+<!--                       <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td> -->
+<!--                       <td width="87%"><input name="Submit23222" type="submit" class="right-button06" value=" " /> -->
+<!--                       </td> -->
+<!--                     </tr> -->
+                </table></td>
+              </tr>
           </table></td>
         </tr>
       </table></td>

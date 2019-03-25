@@ -14,6 +14,8 @@ public interface LabReservationService {
     
     List<LabReservation> get(String studentId);
     
+    List<LabReservation> getByLabNameAndSId(String labName,String studentId);
+    
     //Integer total(String studentId,Integer labId);
 
 }

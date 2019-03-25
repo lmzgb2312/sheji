@@ -288,4 +288,10 @@
       lab_id = #{labId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="getByLabNameAndSId"  resultMap="BaseResultMap">
+    select * from lab_reservation WHERE   lab_name = #{labName} and student_id = #{studentId}
+  </select>
+  
+  
 </mapper>

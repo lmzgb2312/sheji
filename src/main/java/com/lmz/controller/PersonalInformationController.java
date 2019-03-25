@@ -30,5 +30,8 @@ public class PersonalInformationController {
         
         return "listgerenxinxi";
     }
+    
+    
+  
 
 }

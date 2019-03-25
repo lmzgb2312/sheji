@@ -38,21 +38,22 @@ public class LabReservationController {
     }
     
     
-    @RequestMapping("/delete")
-    @ResponseBody
-    public Integer delete(@RequestParam("studentId") String studentId, @RequestParam("labId") Integer labId){
-        return labReservationService.delete(studentId, labId);
+    @RequestMapping("/delete/{labId}")
+    public String delete(@PathVariable("labId") Integer labId){
+        System.out.println("进入删除方法");
+        labReservationService.delete("2015211163", labId);
+        return "redirect:/reservation/get/1";
     }
     
     @RequestMapping("/get/{page}")
   //  @ResponseBody
-    public String get(@PathVariable("page") Integer page,@RequestParam("studentId") String studentId,Map<String,Object> map){
+    public String get(@PathVariable("page") Integer page,Map<String,Object> map){
         
         PageHelper.startPage(page, 5);
-        List<LabReservation> list = labReservationService.get(studentId);
+        List<LabReservation> list = labReservationService.get("2015211163");
         PageInfo<LabReservation> pageInfo = new PageInfo<LabReservation>(list);
         map.put("pageInfo", pageInfo);
-        return "";
+        return "listxiangmuxinxi3";
     }
     
     @RequestMapping("/getOne/{id}")
@@ -66,5 +67,15 @@ public class LabReservationController {
           return "listxiangmuxinxi2";
       }
     
+    @RequestMapping("/getByLabNameAndSId/{page}")
+    //  @ResponseBody
+      public String getByLabNameAndSId(@PathVariable("page") Integer page,@RequestParam("labName") String labName,Map<String,Object> map){
+     
+        PageHelper.startPage(page, 5);
+        List<LabReservation> list = labReservationService.getByLabNameAndSId(labName, "2015211163");
+        PageInfo<LabReservation> pageInfo = new PageInfo<LabReservation>(list);
+        map.put("pageInfo", pageInfo);
+        return "listxiangmuxinxi3";
+      }
 
 }
