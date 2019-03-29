@@ -109,4 +109,18 @@
   2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "contact", data type 12, in table "sheji..personal_information"
   2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "email", data type 12, in table "sheji..personal_information"
   2019-03-18 14:56:39 JakartaCommonsLoggingImpl.java DEBUG Found column "tutor", data type 12, in table "sheji..personal_information"
+  2019-03-26 09:59:29 JakartaCommonsLoggingImpl.java DEBUG Logging initialized using 'org.mybatis.generator.logging.commons.JakartaCommonsLoggingLogFactory@326de728' adapter.
+  2019-03-26 09:59:29 JakartaCommonsLoggingImpl.java DEBUG Retrieving column information for table "login_permissions"
+  2019-03-26 09:59:29 JakartaCommonsLoggingImpl.java DEBUG Found column "id", data type 4, in table "sheji..login_permissions"
+  2019-03-26 09:59:29 JakartaCommonsLoggingImpl.java DEBUG Found column "username", data type 12, in table "sheji..login_permissions"
+  2019-03-26 09:59:29 JakartaCommonsLoggingImpl.java DEBUG Found column "password", data type 12, in table "sheji..login_permissions"
+  2019-03-26 09:59:29 JakartaCommonsLoggingImpl.java DEBUG Found column "person_name", data type 12, in table "sheji..login_permissions"
+  2019-03-26 09:59:29 JakartaCommonsLoggingImpl.java DEBUG Found column "right", data type 4, in table "sheji..login_permissions"
+  2019-03-26 11:51:07 JakartaCommonsLoggingImpl.java DEBUG Logging initialized using 'org.mybatis.generator.logging.commons.JakartaCommonsLoggingLogFactory@326de728' adapter.
+  2019-03-26 11:51:07 JakartaCommonsLoggingImpl.java DEBUG Retrieving column information for table "login_permissions"
+  2019-03-26 11:51:07 JakartaCommonsLoggingImpl.java DEBUG Found column "id", data type 4, in table "sheji..login_permissions"
+  2019-03-26 11:51:07 JakartaCommonsLoggingImpl.java DEBUG Found column "username", data type 12, in table "sheji..login_permissions"
+  2019-03-26 11:51:07 JakartaCommonsLoggingImpl.java DEBUG Found column "password", data type 12, in table "sheji..login_permissions"
+  2019-03-26 11:51:07 JakartaCommonsLoggingImpl.java DEBUG Found column "person_name", data type 12, in table "sheji..login_permissions"
+  2019-03-26 11:51:07 JakartaCommonsLoggingImpl.java DEBUG Found column "person_right", data type 4, in table "sheji..login_permissions"
   

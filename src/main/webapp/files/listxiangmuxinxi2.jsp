@@ -106,7 +106,7 @@ function yuyue(){
 		 $.ajax({
 	        url: '../../reservation/save',
 	        type: 'post',
-	        data: {studentId:2015211163,
+	        data: {studentId:<%=session.getAttribute("userName")%>,
 	        	   labId:$("#labId").val(),
 	        	   labName:$("#labName").val(),
 	        	   labTeacher:$("#labTeacher").val(),
