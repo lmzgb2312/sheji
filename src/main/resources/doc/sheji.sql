@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50549
 File Encoding         : 65001
 
-Date: 2019-04-01 10:25:01
+Date: 2019-04-01 18:28:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,17 +20,17 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `laboratory_arrangement`;
 CREATE TABLE `laboratory_arrangement` (
-  `lab_id` int(11) NOT NULL AUTO_INCREMENT,
-  `lab_name` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `lab_teacher` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `lab_instruction` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `lab_start_time` datetime DEFAULT NULL,
-  `lab_end_time` datetime DEFAULT NULL,
-  `lab_person_amount` int(10) DEFAULT NULL,
-  `gmt_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_modified` datetime DEFAULT NULL,
-  `lab_person_amount_now` int(10) unsigned zerofill DEFAULT '0000000000',
-  `time_period` int(10) DEFAULT NULL,
+  `lab_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `lab_name` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '实验室名称',
+  `lab_teacher` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '任课老师',
+  `lab_instruction` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '实验室说明',
+  `lab_start_time` datetime DEFAULT NULL COMMENT '课程开始时间',
+  `lab_end_time` datetime DEFAULT NULL COMMENT '课程结束时间',
+  `lab_person_amount` int(10) DEFAULT NULL COMMENT '最大人数',
+  `gmt_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `gmt_modified` datetime DEFAULT NULL COMMENT '修改时间',
+  `lab_person_amount_now` int(10) unsigned zerofill DEFAULT '0000000000' COMMENT '当前人数',
+  `time_period` int(10) DEFAULT NULL COMMENT '课程时长',
   PRIMARY KEY (`lab_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -46,13 +46,13 @@ INSERT INTO `laboratory_arrangement` VALUES ('58', '成栋楼812', '李四', '11
 -- ----------------------------
 DROP TABLE IF EXISTS `lab_detail`;
 CREATE TABLE `lab_detail` (
-  `lab_detail_id` int(11) NOT NULL AUTO_INCREMENT,
-  `lab_detail_name` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `lab_detail_teacher` varchar(10) COLLATE utf8_bin DEFAULT NULL,
-  `lab_detail_instruction` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `gmt_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lab_detail_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `lab_detail_name` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '实验室名称',
+  `lab_detail_teacher` varchar(10) COLLATE utf8_bin DEFAULT NULL COMMENT '负责人',
+  `lab_detail_instruction` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '实验室说明',
+  `gmt_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`lab_detail_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of lab_detail
@@ -63,23 +63,24 @@ INSERT INTO `lab_detail` VALUES ('17', '成栋楼813', '王五', '实验室3', '
 INSERT INTO `lab_detail` VALUES ('18', '成栋楼820', '王五', '111', '2019-03-04 14:46:26');
 INSERT INTO `lab_detail` VALUES ('19', '成栋楼826', '11', '111', '2019-03-04 15:22:13');
 INSERT INTO `lab_detail` VALUES ('20', '成栋楼828', '王五', '333', '2019-03-07 10:55:35');
+INSERT INTO `lab_detail` VALUES ('21', '成栋楼330', '11', '11', '2019-04-01 16:50:50');
 
 -- ----------------------------
 -- Table structure for `lab_extend_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `lab_extend_info`;
 CREATE TABLE `lab_extend_info` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lab_extend_name` varchar(10) COLLATE utf8_bin DEFAULT NULL,
-  `lab_extend_teacher` varchar(10) COLLATE utf8_bin DEFAULT NULL,
-  `lab_extend_start_time` datetime DEFAULT NULL,
-  `lab_extend_end_time` datetime DEFAULT NULL,
-  `lab_extend_period_time` int(10) DEFAULT NULL,
-  `gmt_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `gmt_modified` datetime DEFAULT NULL,
-  `lab_extend_amount` int(10) DEFAULT NULL,
-  `lab_extend_current` int(10) unsigned zerofill DEFAULT '0000000000',
-  `uid` int(10) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `lab_extend_name` varchar(10) COLLATE utf8_bin DEFAULT NULL COMMENT '可预约实验室名称',
+  `lab_extend_teacher` varchar(10) COLLATE utf8_bin DEFAULT NULL COMMENT '任课教师',
+  `lab_extend_start_time` datetime DEFAULT NULL COMMENT '实验开始时间',
+  `lab_extend_end_time` datetime DEFAULT NULL COMMENT '实验结束时间',
+  `lab_extend_period_time` int(10) DEFAULT NULL COMMENT '实验时长',
+  `gmt_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `gmt_modified` datetime DEFAULT NULL COMMENT '修改时间',
+  `lab_extend_amount` int(10) DEFAULT NULL COMMENT '最大人数',
+  `lab_extend_current` int(10) unsigned zerofill DEFAULT '0000000000' COMMENT '当前人数',
+  `uid` int(10) DEFAULT NULL COMMENT 'laboratory_arrangement主键',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=523 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -141,7 +142,7 @@ CREATE TABLE `login_permissions` (
 -- Records of login_permissions
 -- ----------------------------
 INSERT INTO `login_permissions` VALUES ('1', '2015211162', '123456', '李明哲', '2');
-INSERT INTO `login_permissions` VALUES ('2', '123456', '123456', '张三', '2');
+INSERT INTO `login_permissions` VALUES ('2', '123456', '123456', '张三', '1');
 
 -- ----------------------------
 -- Table structure for `personal_information`
