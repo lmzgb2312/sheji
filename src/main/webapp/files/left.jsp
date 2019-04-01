@@ -19,6 +19,7 @@ body {
 -->
 </style>
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.9.1.min.js"></script>
 </head>
 <SCRIPT language=JavaScript>
 function tupian(idt){
@@ -44,32 +45,83 @@ function list(idstr){
 	var name2="img"+idstr;
 	var objectobj=document.all(name1);
 	var imgobj=document.all(name2);
-	
-	
-	//alert(imgobj);
-	
-	if(objectobj.style.display=="none"){
-		for(i=1;i<10;i++){
-			var name3="img"+i;
-			var name="subtree"+i;
-			var o=document.all(name);
-			if(o!=undefined){
-				o.style.display="none";
-				var image=document.all(name3);
-				//alert(image);
-				image.src="../images/ico04.gif";
+	var personRight="<%=session.getAttribute("personRight")%>";
+	if(idstr=='8' || idstr=='7'){
+		if(personRight != '1'){
+			alert("你无此权限")
+		}else{
+
+		//alert(imgobj);
+		
+		if(objectobj.style.display=="none"){
+			for(i=1;i<10;i++){
+				var name3="img"+i;
+				var name="subtree"+i;
+				var o=document.all(name);
+				if(o!=undefined){
+					o.style.display="none";
+					var image=document.all(name3);
+					//alert(image);
+					image.src="../images/ico04.gif";
+				}
 			}
+			objectobj.style.display="";
+			imgobj.src="../images/ico03.gif";
 		}
-		objectobj.style.display="";
-		imgobj.src="../images/ico03.gif";
+		else{
+			objectobj.style.display="none";
+			imgobj.src="../images/ico04.gif";
+		}
+		}
+	}else{
+		if(objectobj.style.display=="none"){
+			for(i=1;i<10;i++){
+				var name3="img"+i;
+				var name="subtree"+i;
+				var o=document.all(name);
+				if(o!=undefined){
+					o.style.display="none";
+					var image=document.all(name3);
+					//alert(image);
+					image.src="../images/ico04.gif";
+				}
+			}
+			objectobj.style.display="";
+			imgobj.src="../images/ico03.gif";
+		}
+		else{
+			objectobj.style.display="none";
+			imgobj.src="../images/ico04.gif";
+		}
 	}
-	else{
-		objectobj.style.display="none";
-		imgobj.src="../images/ico04.gif";
-	}
+	
 }
 
 
+
+// $(function(){
+// 	$("#addExSpan").click(function(){
+// 		 $.ajax({
+// 		        //几个参数需要注意一下
+// 		            type: "POST",//方法类型
+// 		            dataType: "text",//预期服务器返回的数据类型
+// 		            url: "../login/permission" ,//url
+// 		            success : function(result) {
+// 		                if (result=="1") {
+// 		                	$("#addEx").append("<span></span>");
+// 		                	$("#addEx span").click();
+// 		                }else if(result == "2"){
+		                	
+// 		                	alert("你无此权限");
+		                	
+// 		                }
+// 		            },
+// 		            error : function(e) {
+// 		                alert("系统异常");
+// 		            }
+// 		        });
+// 	})
+// })
 
 </SCRIPT>
 
@@ -104,7 +156,7 @@ function list(idstr){
 					<tr>
 						<td width="8%"><img name="img8" id="img8" src="../images/ico04.gif" width="8" height="11" /></td>
 						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >实验室信息管理(管理员)</a></td>
+								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" ><span>实验室信息管理(管理员)</span></a></td>
 					</tr>
 				</table>
 			</td>
@@ -114,7 +166,7 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu20" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="addrenwu2.jsp" target="mainFrame" class="left-font03" onClick="tupian('20');">添加实验室</a></td>
+				  <td width="91%"><a href="addrenwu2.jsp" id="addEx" target="mainFrame" class="left-font03" onClick="tupian('20');"><span id="addExSpan">添加实验室</span></a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu21" src="../images/ico06.gif" width="8" height="12" /></td>
