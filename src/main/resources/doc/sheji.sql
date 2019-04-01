@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50549
 File Encoding         : 65001
 
-Date: 2019-03-25 13:53:06
+Date: 2019-04-01 10:25:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -86,7 +86,7 @@ CREATE TABLE `lab_extend_info` (
 -- ----------------------------
 -- Records of lab_extend_info
 -- ----------------------------
-INSERT INTO `lab_extend_info` VALUES ('516', '成栋楼811', '李四', '2019-02-27 17:49:09', '2019-02-27 18:39:09', '50', '2019-03-20 16:52:27', null, '50', '0000000003', '57');
+INSERT INTO `lab_extend_info` VALUES ('516', '成栋楼811', '李四', '2019-02-27 17:49:09', '2019-02-27 18:39:09', '50', '2019-03-26 14:08:29', null, '50', '0000000004', '57');
 INSERT INTO `lab_extend_info` VALUES ('517', '成栋楼811', '李四', '2019-02-27 18:49:09', '2019-02-27 19:39:09', '50', '2019-03-20 16:52:33', null, '50', '0000000003', '57');
 INSERT INTO `lab_extend_info` VALUES ('519', '成栋楼812', '李四', '2019-03-07 15:00:00', '2019-03-07 15:50:00', '50', '2019-03-14 19:00:41', null, '50', '0000000002', '58');
 INSERT INTO `lab_extend_info` VALUES ('520', '成栋楼812', '李四', '2019-03-07 16:00:00', '2019-03-07 16:50:00', '50', '2019-03-20 16:52:41', null, '50', '0000000002', '58');
@@ -108,20 +108,40 @@ CREATE TABLE `lab_reservation` (
   `student_id` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '学生学号',
   `lab_id` int(10) DEFAULT NULL COMMENT '选择实验室主键',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of lab_reservation
 -- ----------------------------
-INSERT INTO `lab_reservation` VALUES ('8', '成栋楼811', null, null, '李四', '3', '50', '111', '2015211162', '516');
+INSERT INTO `lab_reservation` VALUES ('8', '成栋楼811', null, null, '李四', '4', '50', '111', '2015211162', '516');
 INSERT INTO `lab_reservation` VALUES ('9', '成栋楼811', null, null, '李四', '3', '50', '111', '2015211162', '517');
 INSERT INTO `lab_reservation` VALUES ('10', '成栋楼812', null, null, '李四', '2', '50', '111', '2015211162', '520');
 INSERT INTO `lab_reservation` VALUES ('11', '成栋楼812', '2019-03-07 17:00:00.0', '2019-03-07 17:50:00.0', '李四', '3', '50', '111', '2015211162', '521');
 INSERT INTO `lab_reservation` VALUES ('15', '成栋楼812', '2019-03-07 15:00:00.0', '2019-03-07 15:50:00.0', '李四', '2', '50', '111', '2015211162', '519');
-INSERT INTO `lab_reservation` VALUES ('16', '成栋楼811', '2019-02-27 17:49:09.0', '2019-02-27 18:39:09.0', '李四', '3', '50', '111', '2015211163', '516');
+INSERT INTO `lab_reservation` VALUES ('16', '成栋楼811', '2019-02-27 17:49:09.0', '2019-02-27 18:39:09.0', '李四', '4', '50', '111', '2015211163', '516');
 INSERT INTO `lab_reservation` VALUES ('17', '成栋楼811', '2019-02-27 18:49:09.0', '2019-02-27 19:39:09.0', '李四', '3', '50', '111', '2015211163', '517');
 INSERT INTO `lab_reservation` VALUES ('18', '成栋楼812', '2019-03-07 16:00:00.0', '2019-03-07 16:50:00.0', '李四', '2', '50', '111', '2015211163', '520');
 INSERT INTO `lab_reservation` VALUES ('19', '成栋楼812', '2019-03-07 17:00:00.0', '2019-03-07 17:50:00.0', '李四', '3', '50', '111', '2015211163', '521');
+INSERT INTO `lab_reservation` VALUES ('20', '成栋楼811', '2019-02-27 17:49:09.0', '2019-02-27 18:39:09.0', '李四', '4', '50', '111', '123456', '516');
+
+-- ----------------------------
+-- Table structure for `login_permissions`
+-- ----------------------------
+DROP TABLE IF EXISTS `login_permissions`;
+CREATE TABLE `login_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用户名',
+  `password` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '密码',
+  `person_name` varchar(10) COLLATE utf8_bin DEFAULT NULL COMMENT '登录人员姓名',
+  `person_right` int(11) DEFAULT NULL COMMENT '权限 管理员-1 学生-2',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of login_permissions
+-- ----------------------------
+INSERT INTO `login_permissions` VALUES ('1', '2015211162', '123456', '李明哲', '2');
+INSERT INTO `login_permissions` VALUES ('2', '123456', '123456', '张三', '2');
 
 -- ----------------------------
 -- Table structure for `personal_information`
