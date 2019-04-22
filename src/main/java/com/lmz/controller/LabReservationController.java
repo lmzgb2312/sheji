@@ -3,6 +3,8 @@ package com.lmz.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,10 +49,10 @@ public class LabReservationController {
     
     @RequestMapping("/get/{page}")
   //  @ResponseBody
-    public String get(@PathVariable("page") Integer page,Map<String,Object> map){
+    public String get(@PathVariable("page") Integer page,Map<String,Object> map,HttpSession session){
         
         PageHelper.startPage(page, 5);
-        List<LabReservation> list = labReservationService.get("2015211163");
+        List<LabReservation> list = labReservationService.get(session.getAttribute("userName").toString());
         PageInfo<LabReservation> pageInfo = new PageInfo<LabReservation>(list);
         map.put("pageInfo", pageInfo);
         return "listxiangmuxinxi3";

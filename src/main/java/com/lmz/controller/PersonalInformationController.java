@@ -26,8 +26,9 @@ public class PersonalInformationController {
         
        PersonalInformation record = personalInformationService.queryOne(studentId);
         
+       if(record != null){
         map.put("result", record);
-        
+       }
         return "listgerenxinxi";
     }
     

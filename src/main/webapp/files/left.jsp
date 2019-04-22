@@ -435,7 +435,7 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="22" ><img id="xiaotu22" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="../person/query/2015211162" target="mainFrame" class="left-font03" 
+				  <td width="91%"><a href="../person/query/${sessionScope.userName}" target="mainFrame" class="left-font03" 
 						onClick="tupian('22');">个人信息查看</a></td>
 				</tr>
 				<tr>

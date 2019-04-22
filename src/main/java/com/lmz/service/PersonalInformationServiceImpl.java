@@ -28,8 +28,12 @@ public class PersonalInformationServiceImpl implements PersonalInformationServic
         PersonalInformationExample example = new PersonalInformationExample();
         example.createCriteria().andStudentIdEqualTo(studentId);
         List<PersonalInformation> list = personalInformationMapper.selectByExample(example);
-        PersonalInformation personalInformation = list.get(0);
-        return personalInformation;
+        if(list.size() != 0){
+        	PersonalInformation personalInformation = list.get(0);
+        	 return personalInformation;
+        }
+        
+       return null;
     }
 
     /** 
